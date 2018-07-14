@@ -1,0 +1,80 @@
+Permissions:
+0 - Caster
+1 - Administrator
+2 - Moderator
+3 - Subscriber
+4 - Donator
+5 - Hoster (No used)
+6 - Regular
+7 - Viewer
+
+
+Events:
+
+
+addHook???
+command
+discordChannelCommand
+discordChannelCommand
+discordChannelJoin
+discordChannelMessage
+discordChannelPart
+emotesGet
+gameWispAnniversary
+gameWispBenefits
+GameWispBenefits
+gameWispChange
+gameWispSubscribe
+GameWispSubscribe
+initReady
+ircChannelJoin
+ircChannelLeave
+ircChannelMessage
+ircChannelUserMode
+ircChannelUsersUpdate
+ircClearchat
+ircPrivateMessage
+PubSubModerationBan
+PubSubModerationTimeout
+PubSubModerationUnBan
+PubSubModerationUnTimeout
+streamElementsDonation
+streamElementsDonationInitialized
+streamLabsDonation
+streamLabsDonationInitialized
+tipeeeStreamDonation
+tipeeeStreamDonationInitialized
+twitchAlertsDonation
+twitchAlertsDonationInitialized
+twitchAutoHosted
+twitchBits
+twitchClip
+twitchFollow
+twitchFollowsInitialized
+twitchGameChange
+twitchHosted
+twitchHostsInitialized
+twitchOffline
+twitchOnline
+twitchPrimeSubscriber
+twitchReSubscriber
+twitchSubscriber
+twitchSubscriptionGift
+twitter
+twitterRetweet
+webPanelSocketUpdate
+yTPlayerConnect
+yTPlayerCurrentId
+yTPlayerDeletePlaylistByID
+yTPlayerDeleteSR
+yTPlayerDisconnect
+yTPlayerLoadPlaylist
+yTPlayerRandomize
+yTPlayerRequestCurrentSong
+yTPlayerRequestPlaylist
+yTPlayerRequestSonglist
+yTPlayerSkipSong
+yTPlayerSongRequest
+yTPlayerState
+yTPlayerStealSong
+yTPlayerVolume

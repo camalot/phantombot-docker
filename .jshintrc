@@ -1,0 +1,15 @@
+{
+	"quotmark": true,
+	"strict": false,
+	"rhino": true,
+	"maxlen": 280,
+	"eqnull": true,
+	"moz": true,
+	"sub": true,
+
+	"globals": {
+		"$": true
+	}
+
+
+}
