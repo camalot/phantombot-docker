@@ -52,12 +52,13 @@ docker login --username "${ARTIFACTORY_USERNAME}" "${PULL_REPOSITORY}" --passwor
 
 docker pull "${DOCKER_REGISTRY}/${DOCKER_IMAGE}";
 
-# TODO: this should check if these exist before writing...
-echo -e "machine api.heroku.com\n\tlogin ${HEROKU_EMAIL}\n\tpassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
-echo -e "machine git.heroku.com\n\tlogin ${HEROKU_EMAIL}\n\tpassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
+# # TODO: this should check if these exist before writing...
+# echo -e "machine api.heroku.com\n\tlogin ${HEROKU_EMAIL}\n\tpassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
+# echo -e "machine git.heroku.com\n\tlogin ${HEROKU_EMAIL}\n\tpassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
+# --rm -v ~/.netrc:/root/.netrc:ro
 
-docker run -v ~/:/root  wingrunr21/alpine-heroku-cli container:push web --verbose --app "${HEROKU_APP}";
-docker run -v ~/:/root wingrunr21/alpine-heroku-cli container:release web --verbose --app "${HEROKU_APP}";
+docker run -e HEROKU_API_KEY="${HEROKU_AUTH}" wingrunr21/alpine-heroku-cli container:push web --verbose --app "${HEROKU_APP}";
+docker run -e HEROKU_API_KEY="${HEROKU_AUTH}" wingrunr21/alpine-heroku-cli container:release web --verbose --app "${HEROKU_APP}";
 
 # docker run -d \
 # 	--user 0 \
