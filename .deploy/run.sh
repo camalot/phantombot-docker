@@ -29,6 +29,8 @@ get_opts "$@";
 LISTEN_PORT="25000";
 PORT_MAP="49120:${LISTEN_PORT}";
 
+WORKDIR="${WORKSPACE:-"$(pwd)"}";
+
 FORCE_DEPLOY=${opt_force:-0};
 BUILD_PROJECT="${opt_project_name:-"${CI_PROJECT_NAME}"}";
 BUILD_VERSION="${opt_version:-"${CI_BUILD_VERSION:-"1.0.0-snapshot"}"}";
@@ -52,13 +54,15 @@ docker login --username "${ARTIFACTORY_USERNAME}" "${PULL_REPOSITORY}" --passwor
 
 docker pull "${DOCKER_REGISTRY}/${DOCKER_IMAGE}";
 
+
+
 # # TODO: this should check if these exist before writing...
 # echo -e "machine api.heroku.com\n\tlogin ${HEROKU_EMAIL}\n\tpassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
 # echo -e "machine git.heroku.com\n\tlogin ${HEROKU_EMAIL}\n\tpassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
 # --rm -v ~/.netrc:/root/.netrc:ro
 
-docker run -e HEROKU_API_KEY="${HEROKU_AUTH}" wingrunr21/alpine-heroku-cli container:push web --verbose --app "${HEROKU_APP}";
-docker run -e HEROKU_API_KEY="${HEROKU_AUTH}" wingrunr21/alpine-heroku-cli container:release web --verbose --app "${HEROKU_APP}";
+docker run -e HEROKU_API_KEY="${HEROKU_AUTH}" -v ${WORKDIR}:/work -w /work wingrunr21/alpine-heroku-cli container:push web --verbose --app "${HEROKU_APP}";
+docker run -e HEROKU_API_KEY="${HEROKU_AUTH}" -v ${WORKDIR}:/work -w /work wingrunr21/alpine-heroku-cli container:release web --verbose --app "${HEROKU_APP}";
 
 # docker run -d \
 # 	--user 0 \
