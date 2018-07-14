@@ -56,7 +56,7 @@ docker pull "${DOCKER_REGISTRY}/${DOCKER_IMAGE}";
 echo -e "machine api.heroku.com\n\tlogin ${HEROKU_EMAIL}\n\tpassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
 echo -e "machine git.heroku.com\n\tlogin ${HEROKU_EMAIL}\n\tpassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
 
-docker run -v ~/:~/  wingrunr21/alpine-heroku-clicontainer:push web --verbose --app "${HEROKU_APP}";
+docker run -v ~/:~/  wingrunr21/alpine-heroku-cli container:push web --verbose --app "${HEROKU_APP}";
 docker run -v ~/:~/ wingrunr21/alpine-heroku-cli container:release web --verbose --app "${HEROKU_APP}";
 
 # docker run -d \
