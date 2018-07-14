@@ -66,7 +66,7 @@ docker push "registry.heroku.com/${HEROKU_APP}/web";
 # --rm -v ~/.netrc:/root/.netrc:ro
 
 # docker run -e HEROKU_API_KEY="${HEROKU_AUTH}" -v ${WORKDIR}:/work -w /work wingrunr21/alpine-heroku-cli container:push web --verbose --app "${HEROKU_APP}";
-# docker run -e HEROKU_API_KEY="${HEROKU_AUTH}" -v ${WORKDIR}:/work -w /work wingrunr21/alpine-heroku-cli container:release web --verbose --app "${HEROKU_APP}";
+docker run -e HEROKU_API_KEY="${HEROKU_AUTH}" wingrunr21/alpine-heroku-cli container:release web --verbose --app "${HEROKU_APP}";
 
 # docker run -d \
 # 	--user 0 \
