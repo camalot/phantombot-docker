@@ -55,7 +55,7 @@ WORKDIR="${WORKSPACE:-"$(pwd)"}";
 		docker tag "${tag_name_ver}" "${BUILD_PUSH_REGISTRY}/${tag_name_latest}"
 
 	docker tag "${tag_name_ver}" "${BUILD_PUSH_REGISTRY}/${tag_name_ver}";
-	docker tag "${tag_name_ver}" "registry.heroku.com/${HEROKU_APP}:${BUILD_VERSION}";
+	docker tag "${tag_name_ver}" "registry.heroku.com/${HEROKU_APP}/web";
 
 unset BUILD_PROJECT;
 unset BUILD_PUSH_REGISTRY;

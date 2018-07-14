@@ -56,7 +56,9 @@ docker pull "${DOCKER_REGISTRY}/${DOCKER_IMAGE}";
 
 docker login --username "${HEROKU_EMAIL}" "registry.heroku.com" --password-stdin <<< "${HEROKU_AUTH}";
 
-docker push "registry.heroku.com/${HEROKU_APP}:${BUILD_VERSION}";
+echo "pushing to heroku registry";
+
+docker push "registry.heroku.com/${HEROKU_APP}/web";
 
 # # TODO: this should check if these exist before writing...
 # echo -e "machine api.heroku.com\n\tlogin ${HEROKU_EMAIL}\n\tpassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
