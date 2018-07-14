@@ -42,6 +42,7 @@ PULL_REPOSITORY="${DOCKER_REGISTRY}";
 
 [[ -z "${HEROKU_AUTH// }" ]] && __error "Environment variable 'HEROKU_AUTH' missing or is empty";
 [[ -z "${HEROKU_EMAIL// }" ]] && __error "Environment variable 'HEROKU_EMAIL' missing or is empty";
+[[ -z "${HEROKU_APP// }" ]] && __error "Environment variable 'HEROKU_APP' missing or is empty";
 
 DOCKER_IMAGE="${BUILD_ORG}/${BUILD_PROJECT}:${BUILD_VERSION}";
 
@@ -55,8 +56,8 @@ docker pull "${DOCKER_REGISTRY}/${DOCKER_IMAGE}";
 echo -e "machine api.heroku.com\nlogin ${HEROKU_EMAIL}\npassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
 echo -e "machine git.heroku.com\nlogin ${HEROKU_EMAIL}\npassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
 
-docker run wingrunr21/alpine-heroku-cli login
-docker run wingrunr21/alpine-heroku-cli container:push web
+docker run wingrunr21/alpine-heroku-cli login;
+docker run wingrunr21/alpine-heroku-cli container:push web --app "${HEROKU_APP}";
 
 
 # docker run -d \

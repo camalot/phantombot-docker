@@ -58,6 +58,7 @@ node ("docker") {
 							env.PB_TWITTERSECRETTOKEN = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "PB_TWITTERSECRETTOKEN")
 							env.HEROKU_AUTH = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "HEROKU_AUTH")
 							env.HEROKU_EMAIL = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "HEROKU_EMAIL")
+							env.HEROKU_APP = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "HEROKU_APP")
 							deleteDir()
 							Branch.checkout(this, env.CI_PROJECT_NAME)
 							Pipeline.install(this)
