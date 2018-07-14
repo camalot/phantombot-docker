@@ -53,8 +53,8 @@ docker login --username "${ARTIFACTORY_USERNAME}" "${PULL_REPOSITORY}" --passwor
 docker pull "${DOCKER_REGISTRY}/${DOCKER_IMAGE}";
 
 # TODO: this should check if these exist before writing...
-echo -e "machine api.heroku.com\nlogin ${HEROKU_EMAIL}\npassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
-echo -e "machine git.heroku.com\nlogin ${HEROKU_EMAIL}\npassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
+echo -e "machine api.heroku.com\n\tlogin ${HEROKU_EMAIL}\n\tpassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
+echo -e "machine git.heroku.com\n\tlogin ${HEROKU_EMAIL}\n\tpassword ${HEROKU_AUTH}\n\n" >> ~/.netrc;
 
 cat ~/.netrc
 
