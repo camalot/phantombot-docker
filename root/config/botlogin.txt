@@ -1,8 +1,8 @@
 baseport=25000
 panelpassword=%PB_WEBPASSWORD%
 paneluser=%PB_WEBUSER%
-webauth=%PB_WEBAUTH%
-webauthro=%PB_WEBAUTHRO%
+webauth_bak=%PB_WEBAUTH%
+webauthro_bak=%PB_WEBAUTHRO%
 ytauth=%PB_YTAUTH%
 ytauthro=%PB_YTAURHRO%
 debugon=true

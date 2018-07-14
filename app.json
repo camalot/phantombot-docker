@@ -1,0 +1,51 @@
+{
+	"name": "phantombot-heroku",
+	"description": "Phantombot to run in Heroku",
+	"keywords": [
+	],
+	"repository": "https://github.com/camalot/phantombot-heroku.git",
+	"website": "https://github.com/camalot/phantombot-heroku",
+	"env": {
+		"PB_APIOAUTH": {
+			"description": "Twitch API OAuth Token",
+			"value": "",
+			"required": true
+		},
+		"PB_CHANNEL": {
+			"description": "Twitch Channel Name",
+			"value": "",
+			"required": true
+		},
+		"PB_OWNER": {
+			"description": "Twitch user that owns the bot",
+			"value": "",
+			"required": true
+		},
+		"PB_USERNAME": {
+			"description": "Twitch bot user account name",
+			"value": "",
+			"required": true
+		},
+		"PB_OAUTH": {
+			"description": "Twitch bot login OAuth Token",
+			"value": "",
+			"required": true
+		},
+		"PB_WEBUSER": {
+			"description": "Phantombot web login username",
+			"value": "",
+			"required": true
+		},
+		"PB_WEBPASSWORD": {
+			"description": "Phantombot web login password",
+			"value": "",
+			"required": true
+		}
+	},
+	"image": "heroku/nodejs",
+	"buildpacks": [
+		{
+			"url": "heroku/nodejs"
+		}
+	]
+}

@@ -7,9 +7,8 @@ if(env.BRANCH_NAME ==~ /master$/) {
 
 
 node ("docker") {
-	def ProjectName = "phantombot-krymzun"
+	def ProjectName = "phantombot-heroku"
 	def slack_notify_channel = null
-	def teamName = "docker-scripts"
 	def MAJOR_VERSION = 1
 	def MINOR_VERSION = 0
 
@@ -57,8 +56,10 @@ node ("docker") {
 							env.PB_TWITTERCONSUMERKEY = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "PB_TWITTERCONSUMERKEY")
 							env.PB_TWITTERCONSUMERSECRET = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "PB_TWITTERCONSUMERSECRET")
 							env.PB_TWITTERSECRETTOKEN = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "PB_TWITTERSECRETTOKEN")
+							env.HEROKU_AUTH = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "HEROKU_AUTH")
+							env.HEROKU_EMAIL = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "HEROKU_EMAIL")
 							deleteDir()
-							Branch.checkout_vsts(this, teamName, env.CI_PROJECT_NAME)
+							Branch.checkout(this, env.CI_PROJECT_NAME)
 							Pipeline.install(this)
 						}
 						stage ("lint") {
