@@ -1,4 +1,4 @@
-baseport=25000
+baseport=%PB_PORT%
 panelpassword=%PB_WEBPASSWORD%
 paneluser=%PB_WEBUSER%
 webauth_bak=%PB_WEBAUTH%

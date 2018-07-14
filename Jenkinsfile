@@ -59,6 +59,7 @@ node ("docker") {
 							env.HEROKU_AUTH = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "HEROKU_AUTH")
 							env.HEROKU_EMAIL = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "HEROKU_EMAIL")
 							env.HEROKU_APP = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "HEROKU_APP")
+							env.PORT = 2500
 							deleteDir()
 							Branch.checkout(this, env.CI_PROJECT_NAME)
 							Pipeline.install(this)
